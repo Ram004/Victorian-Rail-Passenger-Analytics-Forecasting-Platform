@@ -1,63 +1,36 @@
-# Victorian Rail Passenger Analytics & Forecasting Platform
-
 ## Overview
 
 An end-to-end analytics solution designed to analyse Victorian rail passenger demand, identify long-term trends, forecast future patronage, and support network planning decisions.
 
-The project leverages seven financial years of Victorian train service passenger count data to understand passenger behaviour, assess post-COVID recovery patterns, identify growth corridors, forecast future demand, and evaluate potential capacity pressures across the rail network.
+The project leverages seven financial years of Victorian Train Service Passenger Counts data to understand passenger behaviour, assess post-COVID recovery patterns, identify growth corridors, forecast future demand, and evaluate potential capacity pressures across the rail network.
 
-This project demonstrates a complete Data Analyst workflow including data ingestion, data quality assessment, dimensional modelling, business analytics, forecasting, dashboarding, and stakeholder-focused recommendations.
+The project demonstrates a complete Data Analyst workflow including data ingestion, data quality assessment, dimensional modelling, business analytics, forecasting, dashboarding, and stakeholder-focused recommendations.
+
+---
 
 ## Project Highlights
 
-- Processed 107.5 million passenger records
-- Analysed 23 rail lines and 317 stations
-- Built a Bronze, Silver and Gold Medallion Architecture
+- Processed 107.5 million passenger records representing approximately 1.43 billion passenger boardings
+- Analysed 23 rail lines and 317 stations across the Victorian rail network
+- Built a Bronze, Silver and Gold Medallion Architecture using PySpark
 - Implemented a Snowflake analytics warehouse
-- Developed Power BI dashboards for executive reporting and station analysis
-- Built a Meta Prophet forecasting model using 84 months of historical demand
-- Generated a 24-month passenger demand forecast through May 2027
-- Identified Flinders Street (~274M boardings) as the highest-demand station
+- Developed Power BI dashboards for executive reporting and station-level analysis
+- Built a Meta Prophet forecasting model using 84 months of historical demand data
+- Generated passenger demand forecasts for FY2025–26 and FY2026–27
+- Identified Flinders Street (~274 million boardings) as the highest-demand station
 - Validated passenger boardings and alightings within 0.12% variance
 
 ---
 
 ## Business Problem
 
-Rail operators and transport planners rely on data-driven insights to support operational planning, service delivery and long-term network investment decisions.
+Rail operators and transport planners rely on data-driven insights to support operational planning, service delivery, capacity management, and long-term network investment decisions.
 
 This project explores how passenger demand analytics and forecasting can support planning decisions across the Victorian rail network.
 
-This project seeks to answer the following questions:
-
-## Project Results
-
-### Network Scale
-
-- Processed 107.5 million passenger records.
-- Analysed 23 rail lines.
-- Analysed 317 stations.
-- Processed approximately 1.43 billion passenger boardings.
-
-### Data Validation
-
-- Passenger boardings and alightings differed by approximately 0.12%, indicating strong network-wide data consistency.
-
-### Highest Demand Stations
-
-1. Flinders Street (~274M boardings)
-2. Southern Cross (~151M boardings)
-3. Melbourne Central (~70M boardings)
-
-### Forecasting
-
-- Developed a Prophet forecasting model using 84 months of historical demand.
-- Generated a 24-month passenger demand forecast through May 2027.
-- Produced forecast uncertainty intervals (upper and lower bounds) to support planning and risk assessment.
-
 ### Demand Analysis
 
-- How has passenger demand changed between FY2018-19 and FY2024-25?
+- How has passenger demand changed between FY2018–19 and FY2024–25?
 - What impact did COVID-19 have on passenger patronage?
 - How has passenger demand recovered following the pandemic?
 
@@ -75,30 +48,59 @@ This project seeks to answer the following questions:
 
 ### Forecasting
 
-- What passenger demand can be expected during FY2025-26 and FY2026-27?
+- What passenger demand can be expected during FY2025–26 and FY2026–27?
 - How might future growth impact network performance and capacity?
+
+---
+
+## Project Results
+
+### Network Scale
+
+The Victorian rail network dataset included:
+
+- 107.5 million passenger records
+- 23 rail lines
+- 317 stations
+- Approximately 1.43 billion passenger boardings
+
+### Data Validation
+
+- Passenger boardings and alightings differed by approximately 0.12%, indicating strong network-wide data consistency
+
+### Highest Demand Stations
+
+1. Flinders Street (~274 million boardings)
+2. Southern Cross (~151 million boardings)
+3. Melbourne Central (~70 million boardings)
+
+### Demand Trends
+
+- Passenger demand declined significantly during the COVID-19 period
+- Network patronage has demonstrated a sustained recovery trend since 2022
+- Recovery patterns varied across lines, stations and service groups
 
 ---
 
 ## Dataset
 
-Source:
+### Source
 
 Victorian Department of Transport and Planning Open Data
 
-Dataset:
+### Dataset
 
 Train Service Passenger Counts
 
-Coverage:
+### Coverage
 
-- FY2018-19
-- FY2019-20
-- FY2020-21
-- FY2021-22
-- FY2022-23
-- FY2023-24
-- FY2024-25
+- FY2018–19
+- FY2019–20
+- FY2020–21
+- FY2021–22
+- FY2022–23
+- FY2023–24
+- FY2024–25
 
 The dataset contains train service-level passenger boardings, alightings and passenger load information across the Victorian metropolitan and regional rail network.
 
@@ -108,53 +110,60 @@ The dataset contains train service-level passenger boardings, alightings and pas
 
 ```text
 Victorian Open Transport Data
-         |
-         v
+        |
+        v
 
 Landing Zone (CSV Files)
-         |
-         v
+        |
+        v
 
 Bronze Layer (PySpark)
-Raw Historical Data
-Schema Discovery
-Data Profiling
-Parquet Conversion
-         |
-         v
+- Raw Historical Data
+- Schema Discovery
+- Data Profiling
+- Parquet Conversion
+
+        |
+        v
 
 Silver Layer
-Data Quality Validation
-Data Cleansing
-Dimensional Modelling
-         |
-         v
+- Data Quality Validation
+- Data Cleansing
+- Dimensional Modelling
+
+        |
+        v
 
 Snowflake Analytics Warehouse
-         |
-         v
+
+        |
+        v
 
 Gold Layer
-Business Data Products
-Growth Analysis
-Capacity Analysis
-Forecast Inputs
-         |
-         v
+- Passenger Demand Analysis
+- Line Growth Analysis
+- Station Demand Analysis
+- Capacity Utilisation Analysis
+- Forecast Inputs
+
+        |
+        v
 
 Python Forecasting Engine
-Prophet
-Moving Average Models
-         |
-         v
+(Meta Prophet)
 
-Forecast Results
-         |
-         v
+        |
+        v
+
+Forecast Outputs
+
+        |
+        v
 
 Power BI Dashboards
-         |
-         v
+
+        |
+        v
 
 Business Recommendations
 ```
@@ -165,11 +174,11 @@ Business Recommendations
 
 ### Bronze Layer
 
-Purpose:
+**Purpose**
 
 Preserve raw historical datasets and establish the foundation for analytics.
 
-Activities:
+**Activities**
 
 - CSV ingestion
 - Schema discovery
@@ -177,19 +186,17 @@ Activities:
 - Metadata capture
 - Conversion to Parquet
 
-Outputs:
+**Outputs**
 
 - bronze_passenger_counts
 
----
-
 ### Silver Layer
 
-Purpose:
+**Purpose**
 
 Create clean, validated and business-ready datasets.
 
-Activities:
+**Activities**
 
 - Data quality assessment
 - Null handling
@@ -197,25 +204,25 @@ Activities:
 - Business rule validation
 - Dimensional modelling
 
-Fact Tables:
+#### Fact Tables
 
 - fact_passenger_counts
 
-Dimension Tables:
+#### Dimension Tables
 
 - dim_date
 - dim_line
+- dim_station
 - dim_direction
-
----
+- dim_train_service
 
 ### Gold Layer
 
-Purpose:
+**Purpose**
 
 Deliver business-focused analytical datasets for reporting and forecasting.
 
-Business Views:
+**Business Views**
 
 - passenger_demand_summary
 - line_growth_analysis
@@ -230,7 +237,7 @@ Business Views:
 
 The project incorporates data quality validation prior to business reporting.
 
-Checks include:
+### Data Quality Checks
 
 - Missing values
 - Duplicate records
@@ -239,7 +246,7 @@ Checks include:
 - Data completeness
 - Data consistency
 
-Outputs:
+### Outputs
 
 - Data quality scorecards
 - Exception reporting
@@ -249,29 +256,64 @@ Outputs:
 
 ## Forecasting Approach
 
-The project uses historical passenger demand patterns to estimate future network utilisation.
+The project uses historical passenger demand patterns to estimate future network utilisation and support planning decisions.
 
 ### Forecast Model
 
 - Meta Prophet
 
-Training Data:
+### Training Period
+
 - July 2018 to June 2025 (84 months)
 
-Forecast Horizon:
+### Forecast Horizon
+
 - 24 months
 
-Forecast Period:
+### Forecast Period
+
 - July 2025 to June 2027
-
-### Forecast Horizons
-
-- FY2025-26
-- FY2026-27
 
 ### Forecast Outputs
 
-- Network Passenger Demand
+- Expected Demand (`yhat`)
+- Lower Forecast Bound (`yhat_lower`)
+- Upper Forecast Bound (`yhat_upper`)
+- Forecast Uncertainty Intervals
+
+---
+
+## Forecast Results
+
+### Forecast Validation
+
+#### Forecast Validation Method
+
+A holdout validation approach was used by training the model on the first 72 months of passenger demand data and evaluating forecast performance on the final 12 months before generating the final network forecast.
+
+#### Validation Period
+
+- July 2024 to June 2025
+
+| Metric | Result |
+|----------|----------|
+| MAE | 7.81 million passengers |
+| RMSE | 8.25 million passengers |
+| MAPE | 37.83% |
+
+The model's predictive performance was affected by significant structural changes in passenger demand during the COVID-19 period and the subsequent recovery phase. Forecast outputs should therefore be interpreted as planning estimates rather than precise future passenger volumes.
+
+### Forecast Limitations
+
+Forecast results should be interpreted as planning estimates rather than precise future passenger volumes.
+
+Limitations include:
+
+- Passenger counts are estimated rather than directly observed
+- COVID-19 introduced significant structural changes in passenger travel behaviour
+- The model does not explicitly account for public holidays, weather conditions, population growth, major events or service changes
+- Forecast uncertainty increases over longer forecast horizons
+- Forecast performance was affected by post-pandemic recovery patterns and significant changes in passenger travel behaviour
 
 ---
 
@@ -279,36 +321,42 @@ Forecast Period:
 
 ### Executive Overview
 
+Provides a network-wide view of passenger demand, growth trends, busiest rail lines and highest-demand stations.
+
+**Key Features**
+
 - Total Passenger Demand
 - Year-on-Year Growth
-- Forecast Passenger Demand
-- High Growth Corridors
+- Passenger Demand Trends
+- Busiest Lines
+- Highest Demand Stations
 
-### Passenger Demand Analysis
+### Station Analysis
 
-- Historical Demand Trends
-- COVID Impact Analysis
-- Recovery Patterns
+Provides station-level insights to identify demand concentrations and station performance.
 
-### Growth Analysis
+**Key Features**
 
-- Fastest Growing Lines
-- Fastest Growing Stations
-- Growth Rankings
-
-### Capacity Planning
-
-- Capacity Risk Assessment
-- Service Utilisation Analysis
-- Network Pressure Points
+- Station Boardings
+- Station Alightings
+- Station Demand Trends
+- Station Rankings
 
 ### Forecasting
 
+Provides visualisation of expected future passenger demand.
+
+**Key Features**
+
 - Passenger Demand Forecasts
-- Confidence Intervals
-- Forecast Uncertainty Analysis
+- Forecast Uncertainty Intervals
+- Forecast Validation Metrics
 
 ### Data Quality
+
+Provides transparency into dataset quality and validation outcomes.
+
+**Key Features**
 
 - Completeness Metrics
 - Data Quality Exceptions
@@ -316,31 +364,6 @@ Forecast Period:
 
 ---
 
-## Key Findings
-
-### Network Demand
-
-- Approx. 1.43 billion passenger boardings were analysed.
-
-### Data Validation
-
-- Passenger boardings and alightings differed by only 0.12%, indicating strong dataset consistency.
-
-### Highest Demand Stations
-
-1. Flinders Street (~274M boardings)
-2. Southern Cross (~151M boardings)
-3. Melbourne Central (~70M boardings)
-
-### Demand Trends
-
-- Passenger demand declined significantly during the COVID-19 period before demonstrating a sustained recovery trend from 2022 onwards.
-
-### Forecast
-
-- A 24-month passenger demand forecast was generated through May 2027 using Meta Prophet.
-
----
 ## Technology Stack
 
 ### Data Engineering
@@ -349,57 +372,22 @@ Forecast Period:
 - Parquet
 - Medallion Architecture
 
-### Snowflake Warehouse
-The Gold analytical datasets and dimensional model were loaded into Snowflake to support reporting and downstream analytics.
+### Data Warehouse
 
-Dimensions:
-
-- DIM_DATE
-- DIM_LINE
-- DIM_STATION
-- DIM_DIRECTION
-- DIM_TRAIN_SERVICE
-
-Analytics Tables:
-
-- GOLD_PASSENGER_DEMAND
-- GOLD_STATION_DEMAND
-- GOLD_LINE_GROWTH
-- GOLD_CAPACITY_UTILISATION
-- GOLD_FORECAST_INPUT
+- Snowflake
 
 ### Analytics
 
 - SQL
 - Python
-- Pandas (profiling and exploratory analysis)
+- Pandas
 
 ### Forecasting
 
-- Prophet
-- Time-Series Analysis
-
-## Forecast Results
-
-Model:
 - Meta Prophet
+- Time Series Analysis
 
-Training Data:
-- 84 months
-
-Forecast Horizon:
-- 24 months
-
-Forecast End Date:
-- 31 May 2027
-
-Outputs:
-
-- Expected Demand (yhat)
-- Lower Forecast Bound (yhat_lower)
-- Upper Forecast Bound (yhat_upper)
-
-### Reporting
+### Visualisation
 
 - Power BI
 
@@ -412,61 +400,90 @@ Outputs:
 ## Project Structure
 
 ```text
-victorian-rail-passenger-analytics-platform
-
+victorian-rail-passenger-analytics-forecasting-platform
+│
 ├── README.md
-
+│
 ├── data
 │   ├── raw
+│   │   ├── train_service_passenger_counts_fy_2018_2019.csv
+│   │   ├── train_service_passenger_counts_fy_2019_2020.csv
+│   │   ├── train_service_passenger_counts_fy_2020_2021.csv
+│   │   ├── train_service_passenger_counts_fy_2021_2022.csv
+│   │   ├── train_service_passenger_counts_fy_2022_2023.csv
+│   │   ├── train_service_passenger_counts_fy_2023_2024.csv
+│   │   └── train_service_passenger_counts_fy_2024_2025.csv
+│   │
 │   ├── bronze
+│   │   └── bronze_passenger_counts
+│   │
 │   ├── silver
-│   └── gold
-
+│   │   ├── dim_date
+│   │   ├── dim_direction
+│   │   ├── dim_line
+│   │   ├── dim_station
+│   │   ├── dim_train_service
+│   │   └── fact_passenger_counts
+│   │
+│   ├── gold
+│   │   ├── gold_capacity_utilisation
+│   │   ├── gold_forecast_input
+│   │   ├── gold_line_growth
+│   │   ├── gold_passenger_demand
+│   │   └── gold_station_demand
+│   │
+│   └── forecast
+│       ├── forecast_validation_metrics.csv
+│       ├── passenger_demand_forecast.csv
+│       ├── passenger_demand_forecast.png
+│       └── Victorian_Rail_Passenger_Analytics.pbix
+│
 ├── docs
 │   ├── architecture.md
-│   ├── business_problem.md
 │   ├── data_dictionary.md
 │   ├── data_model.md
-│   └── data_profiling.md
-
+│   ├── data_products.md
+│   ├── data_profiling.md
+│   ├── findings.md
+│   └── forecasting.md
+│
 ├── notebooks
-│   ├── 01_bronze_ingestion.ipynb
-│   ├── 02_data_profiling.ipynb
-│   ├── 03_silver_transformation.ipynb
+│   ├── 01_data_profiling.ipynb
+│   ├── 02_bronze_ingestion.ipynb
+│   ├── 03_silver_transformations.ipynb
 │   ├── 04_gold_analytics.ipynb
 │   └── 05_forecasting.ipynb
-
+│
+├── scripts
+│   ├── bronze_ingestion.py
+│   ├── forecast.py
+│   ├── forecast_demand.py
+│   ├── gold_transformations.py
+│   ├── load_dimensions_to_snowflake.py
+│   ├── load_gold_to_snowflake.py
+│   ├── profile_dataset.py
+│   ├── silver_transformations.py
+│   ├── test_snowflake_connection.py
+│   ├── validate_dimensions.py
+│   ├── validate_silver_dimensions.py
+│   └── validation.py
+│
 ├── sql
-│   ├── create_tables.sql
-│   ├── transformations.sql
-│   └── analytics.sql
-
-├── powerbi
-
+│   ├── analytics
+│   │   └── gold_views.sql
+│   ├── ddl
+│   │   └── create_database.sql
+│   └── transformations
+│       └── silver_transformations.sql
+│
 ├── screenshots
-
+│   ├── executive_dashboard.png
+│   ├── station_analysis_dashboard.png
+│   └── forecast_dashboard.png
+│
+├── powerbi
 └── requirements.txt
 ```
-
----
-
-## Key Outcomes
-
-This project demonstrates:
-
-- End-to-End Data Analytics
-- Data Quality Management
-- Data Modelling
-- SQL Analytics
-- Trend Analysis
-- Forecasting & Modelling
-- Capacity Planning
-- Snowflake Analytics
-- Python Analytics
-- Power BI Development
-- Data Storytelling
-- Business Recommendations
-- Decision Support
 
 ---
 
@@ -480,20 +497,24 @@ This project demonstrates:
 - Real-time network monitoring
 - Passenger demand anomaly detection
 
+---
 
 # Executive Dashboard
-![alt text](executive_dashboard.png)
-The Executive Dashboard provides a network-wide view of passenger demand, busiest rail lines, station activity and long-term demand trends.
+![alt text](screenshots/executive_dashboard.png)
+
+The Executive Dashboard provides a network-wide view of passenger demand, busiest rail lines, station activity, and long-term demand trends.
 
 ---
 
 # Station Analysis Dashboard
-![alt text](station_analysis_dashboard.png)
-The Station Analysis dashboard enables analysis of passenger demand at station level, highlighting the busiest stations and demand trends over time.
+![alt text](screenshots/station_analysis_dashboard.png)
+
+The Station Analysis Dashboard enables analysis of passenger demand at station level, highlighting the busiest stations and demand trends over time.
 
 ---
 
 # Forecast Dashboard
-![alt text](forecast_dashboard.png)
+![alt text](screenshots/forecast_dashboard.png)
 
-The Forecast Dashboard visualises a 24-month passenger demand forecast generated using Meta Prophet, including forecast confidence intervals and expected demand scenarios.
+The Forecast Dashboard visualises a 24-month passenger demand forecast generated using Meta Prophet, including forecast uncertainty intervals and expected passenger demand estimates to support planning and risk assessment activities.
+``
