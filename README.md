@@ -1,4 +1,4 @@
-# Metro Rail Passenger Demand Forecasting & Capacity Planning Platform
+# Victorian Rail Passenger Analytics & Forecasting Platform
 
 ## Overview
 
@@ -8,13 +8,52 @@ The project leverages seven financial years of Victorian train service passenger
 
 This project demonstrates a complete Data Analyst workflow including data ingestion, data quality assessment, dimensional modelling, business analytics, forecasting, dashboarding, and stakeholder-focused recommendations.
 
+## Project Highlights
+
+- Processed 107.5 million passenger records
+- Analysed 23 rail lines and 317 stations
+- Built a Bronze, Silver and Gold Medallion Architecture
+- Implemented a Snowflake analytics warehouse
+- Developed Power BI dashboards for executive reporting and station analysis
+- Built a Meta Prophet forecasting model using 84 months of historical demand
+- Generated a 24-month passenger demand forecast through May 2027
+- Identified Flinders Street (~274M boardings) as the highest-demand station
+- Validated passenger boardings and alightings within 0.12% variance
+
 ---
 
 ## Business Problem
 
-Metro's Performance, Planning and Reporting teams rely on data-driven insights to support operational planning and decision-making.
+Rail operators and transport planners rely on data-driven insights to support operational planning, service delivery and long-term network investment decisions.
+
+This project explores how passenger demand analytics and forecasting can support planning decisions across the Victorian rail network.
 
 This project seeks to answer the following questions:
+
+## Project Results
+
+### Network Scale
+
+- Processed 107.5 million passenger records.
+- Analysed 23 rail lines.
+- Analysed 317 stations.
+- Processed approximately 1.43 billion passenger boardings.
+
+### Data Validation
+
+- Passenger boardings and alightings differed by approximately 0.12%, indicating strong network-wide data consistency.
+
+### Highest Demand Stations
+
+1. Flinders Street (~274M boardings)
+2. Southern Cross (~151M boardings)
+3. Melbourne Central (~70M boardings)
+
+### Forecasting
+
+- Developed a Prophet forecasting model using 84 months of historical demand.
+- Generated a 24-month passenger demand forecast through May 2027.
+- Produced forecast uncertainty intervals (upper and lower bounds) to support planning and risk assessment.
 
 ### Demand Analysis
 
@@ -212,15 +251,18 @@ Outputs:
 
 The project uses historical passenger demand patterns to estimate future network utilisation.
 
-### Forecast Models
+### Forecast Model
 
-#### Baseline Forecast
+- Meta Prophet
 
-- Moving Average Forecasting
+Training Data:
+- July 2018 to June 2025 (84 months)
 
-#### Advanced Forecast
+Forecast Horizon:
+- 24 months
 
-- Prophet Time-Series Forecasting
+Forecast Period:
+- July 2025 to June 2027
 
 ### Forecast Horizons
 
@@ -230,38 +272,6 @@ The project uses historical passenger demand patterns to estimate future network
 ### Forecast Outputs
 
 - Network Passenger Demand
-- Line-Level Passenger Demand
-- Capacity Utilisation Trends
-
----
-
-## Scenario Planning
-
-Scenario modelling is used to support operational planning decisions.
-
-Scenarios:
-
-### Current Demand
-
-Baseline forecast.
-
-### Moderate Growth
-
-+10% passenger growth.
-
-### High Growth
-
-+20% passenger growth.
-
-### Aggressive Growth
-
-+30% passenger growth.
-
-Business Questions:
-
-- Which lines may require additional services?
-- Which stations may experience future demand pressure?
-- Which corridors should be prioritised for planning activities?
 
 ---
 
@@ -296,7 +306,7 @@ Business Questions:
 
 - Passenger Demand Forecasts
 - Confidence Intervals
-- Scenario Modelling
+- Forecast Uncertainty Analysis
 
 ### Data Quality
 
@@ -306,6 +316,31 @@ Business Questions:
 
 ---
 
+## Key Findings
+
+### Network Demand
+
+- Approx. 1.43 billion passenger boardings were analysed.
+
+### Data Validation
+
+- Passenger boardings and alightings differed by only 0.12%, indicating strong dataset consistency.
+
+### Highest Demand Stations
+
+1. Flinders Street (~274M boardings)
+2. Southern Cross (~151M boardings)
+3. Melbourne Central (~70M boardings)
+
+### Demand Trends
+
+- Passenger demand declined significantly during the COVID-19 period before demonstrating a sustained recovery trend from 2022 onwards.
+
+### Forecast
+
+- A 24-month passenger demand forecast was generated through May 2027 using Meta Prophet.
+
+---
 ## Technology Stack
 
 ### Data Engineering
@@ -314,9 +349,24 @@ Business Questions:
 - Parquet
 - Medallion Architecture
 
-### Data Warehouse
+### Snowflake Warehouse
+The Gold analytical datasets and dimensional model were loaded into Snowflake to support reporting and downstream analytics.
 
-- Snowflake
+Dimensions:
+
+- DIM_DATE
+- DIM_LINE
+- DIM_STATION
+- DIM_DIRECTION
+- DIM_TRAIN_SERVICE
+
+Analytics Tables:
+
+- GOLD_PASSENGER_DEMAND
+- GOLD_STATION_DEMAND
+- GOLD_LINE_GROWTH
+- GOLD_CAPACITY_UTILISATION
+- GOLD_FORECAST_INPUT
 
 ### Analytics
 
@@ -328,6 +378,26 @@ Business Questions:
 
 - Prophet
 - Time-Series Analysis
+
+## Forecast Results
+
+Model:
+- Meta Prophet
+
+Training Data:
+- 84 months
+
+Forecast Horizon:
+- 24 months
+
+Forecast End Date:
+- 31 May 2027
+
+Outputs:
+
+- Expected Demand (yhat)
+- Lower Forecast Bound (yhat_lower)
+- Upper Forecast Bound (yhat_upper)
 
 ### Reporting
 
@@ -342,7 +412,7 @@ Business Questions:
 ## Project Structure
 
 ```text
-metro-rail-demand-forecasting
+victorian-rail-passenger-analytics-platform
 
 ├── README.md
 
@@ -409,3 +479,21 @@ This project demonstrates:
 - Reliability and punctuality integration
 - Real-time network monitoring
 - Passenger demand anomaly detection
+
+
+# Executive Dashboard
+![alt text](executive_dashboard.png)
+The Executive Dashboard provides a network-wide view of passenger demand, busiest rail lines, station activity and long-term demand trends.
+
+---
+
+# Station Analysis Dashboard
+![alt text](station_analysis_dashboard.png)
+The Station Analysis dashboard enables analysis of passenger demand at station level, highlighting the busiest stations and demand trends over time.
+
+---
+
+# Forecast Dashboard
+![alt text](forecast_dashboard.png)
+
+The Forecast Dashboard visualises a 24-month passenger demand forecast generated using Meta Prophet, including forecast confidence intervals and expected demand scenarios.
