@@ -1,0 +1,32 @@
+# Data
+data/raw/
+data/bronze/
+data/silver/
+data/gold/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Environment Variables
+.env
+
+# Local Config
+config/snowflake_config.py
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Power BI
+*.pbix
+
+# Spark
+.sparkStaging/
+
+# Parquet
+*.parquet
+
+# OS
+.DS_Store
+Thumbs.db
