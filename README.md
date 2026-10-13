@@ -2,7 +2,7 @@
 
 An end-to-end analytics solution designed to analyse Victorian rail passenger demand, identify long-term trends, forecast future patronage, and support network planning decisions.
 
-The project leverages seven financial years of Victorian Train Service Passenger Counts data to understand passenger behaviour, assess post-COVID recovery patterns, identify growth corridors, forecast future demand, and evaluate potential capacity pressures across the rail network.
+The project leverages seven financial years of Victorian Train Service Passenger Counts data to understand passenger behaviour, assess post-COVID recovery patterns, identify growth corridors, forecast future demand, and analyse network utilisation trends across the rail network.
 
 The project demonstrates a complete Data Analyst workflow including data ingestion, data quality assessment, dimensional modelling, business analytics, forecasting, dashboarding, and stakeholder-focused recommendations.
 
@@ -24,7 +24,7 @@ The project demonstrates a complete Data Analyst workflow including data ingesti
 
 ## Business Problem
 
-Rail operators and transport planners rely on data-driven insights to support operational planning, service delivery, capacity management, and long-term network investment decisions.
+Rail operators and transport planners rely on data-driven insights to support operational planning, service delivery, utilisation monitoring and long-term network investment decisions.
 
 This project explores how passenger demand analytics and forecasting can support planning decisions across the Victorian rail network.
 
@@ -447,7 +447,6 @@ victorian-rail-passenger-analytics-forecasting-platform
 │   ├── findings.md
 │   └── forecasting.md
 │
-├── notebooks
 │   ├── 01_data_profiling.ipynb
 │   ├── 02_bronze_ingestion.ipynb
 │   ├── 03_silver_transformations.ipynb

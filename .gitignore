@@ -29,4 +29,4 @@ config/snowflake_config.py
 
 # OS
 .DS_Store
-Thumbs.db
+Thumbs.db*Zone.Identifier

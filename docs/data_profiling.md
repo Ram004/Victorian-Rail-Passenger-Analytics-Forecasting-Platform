@@ -404,7 +404,7 @@ Snowflake
 
 ## Forecasting
 
-Python + Prophet
+Python (seasonal baseline; Prophet benchmarked)
 
 ## Reporting
 

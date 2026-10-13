@@ -237,7 +237,7 @@ The following analytical datasets will be produced.
 
 ---
 
-## PASSENGER_DEMAND_SUMMARY
+## GOLD_PASSENGER_DEMAND
 
 ### Purpose
 
@@ -246,6 +246,7 @@ Analyse historical demand trends.
 ### Grain
 
 ```text
+Financial year
 Month
 Line
 ```
@@ -254,39 +255,37 @@ Line
 
 - Total Boardings
 - Total Alightings
-- Passenger Growth
+- Total Passenger Activity (boardings + alightings)
 
 ---
 
-## LINE_GROWTH_ANALYSIS
+## GOLD_LINE_GROWTH
 
 ### Purpose
 
-Identify fastest growing rail lines.
+Compare passenger demand by line and financial year.
 
 ### Measures
 
-- Total Passengers
-- Growth %
-- Passenger Share %
+- Total boardings
+- Total alightings
 
 ---
 
-## STATION_GROWTH_ANALYSIS
+## GOLD_STATION_DEMAND
 
 ### Purpose
 
-Identify stations exhibiting growth trends.
+Analyse station boardings and alightings by month.
 
 ### Measures
 
 - Boardings
 - Alightings
-- Growth %
 
 ---
 
-## SERVICE_UTILISATION_ANALYSIS
+## SERVICE_UTILISATION_ANALYSIS (planned, not implemented)
 
 ### Purpose
 
@@ -300,25 +299,24 @@ Assess service demand and utilisation.
 
 ---
 
-## CAPACITY_RISK_ANALYSIS
+## GOLD_CAPACITY_UTILISATION
 
 ### Purpose
 
-Identify potential crowding and capacity pressure.
+Summarise passenger load by line to support capacity analysis.
 
 ### Measures
 
-- Average Load
-- Peak Load
-- Capacity Utilisation Index
+- Average arrival load and average departure load
+- Peak departure load
 
 ---
 
-## FORECAST_INPUT
+## GOLD_FORECAST_INPUT
 
 ### Purpose
 
-Generate forecasting datasets for Prophet.
+Provide the monthly boardings series used for forecasting and validation.
 
 ### Grain
 
@@ -336,7 +334,7 @@ Line
 
 # Forecasting Outputs
 
-## NETWORK_DEMAND_FORECAST
+## NETWORK_DEMAND_FORECAST (planned, not implemented)
 
 Forecast:
 
@@ -346,7 +344,7 @@ Total Passenger Demand
 
 ---
 
-## LINE_DEMAND_FORECAST
+## LINE_DEMAND_FORECAST (planned, not implemented)
 
 Forecast:
 
@@ -363,7 +361,7 @@ Examples:
 
 ---
 
-## CAPACITY_FORECAST
+## CAPACITY_FORECAST (planned, not implemented)
 
 Forecast:
 
